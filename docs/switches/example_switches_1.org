@@ -1,0 +1,22 @@
+#+Title: Example of the use of Switches
+#+Author: Saul SL
+#+date: July 2025
+#+options: broken-links:t ^:{} toc:nil
+
+* Update repositories and upgrade system in a Debian-based Linux system
+To update the list of repositories one usually needs super-user permissions (or use a super-user account). In the former case, one needs to prepend the commands with the =sudo= keyword and (during execution) type the password. Then, to upgrade the packages (if any) one has to type the =upgrade= command using the sudo command again and confirm the instruction. To simplify the process one can run both commands at once and add a confirmation switch after (see line [[(upd-upg)]]).
+
+#+begin_src bash -n -r
+  sudo apt update
+  sudo apt upgrade
+
+  sudo apt update && sudo apt upgrade -y				  (ref:upd-upg)
+#+end_src
+
+* Extra files                                  :noexport:
+# Local Variables:
+# eval: (setq org-html-head-include-scripts t)
+# org-confirm-babel-evaluate: nil
+# eval: (setq org-html-htmlize-output-type inline-css)
+# eval: (setq org-html-head-include-default-style t)
+# End:

@@ -1,0 +1,37 @@
+#+Title: Example of the use of the =name= keyword
+#+Author: Saul SL
+#+date: July 2025
+#+options: broken-links:t ^:{}
+
+* Inserting the results of a code block
+#+name: AirQuality
+#+begin_src R :session :exports both :colnames yes 
+  ## install.packages("dplyr")
+  library(dplyr)
+  airquality |>
+    arrange (desc(Ozone)) |>
+    head(n = 5)
+#+end_src
+
+R has a number of built-in datasets to work with, one of them is =airquality= which reports daily air quality measurements in New York, from May to September 1973. Variables measured include
+- =Ozone=:     Mean ozone in parts per billion (ppb)             
+- =Solar.R=:   Solar radiation in Langleys (lang)          
+- =Wind=:      Average wind speed in miles per hour (mph)              
+- =Temp=:      Maximum daily temperature in degrees Fahrenheit (degrees F) 
+- =Month=:     Month (1-12)            
+- =Day=:       Day of month (5-9)   
+
+  The code above loads the =dyplyr= library and then works to select the top 5 days with the highest concentration of Ozone recorded in this period (This was done to reduce the number of rows , src_R{nrow(airquality)}, in the unprocessed dataset). The results are shown below. 
+  
+#+caption: airquality dataset
+#+RESULTS: AirQuality
+
+#+begin_quote
+Note that these were inserted by calling the above code with the org-mode keyword =#+RESULTS: AirQuality= where AirQuality is the name given to the code block. As for the number of rows described above it was inserted using in-line code =src_R{nrow(airquality)}=.
+#+end_quote
+* Extra files                                  :noexport:
+# Local Variables:
+# org-confirm-babel-evaluate: nil
+# eval: (setq org-html-htmlize-output-type inline-css)
+# eval: (setq org-html-head-include-default-style t)
+# End:

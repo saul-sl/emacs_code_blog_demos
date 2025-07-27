@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-07-24 Thu 17:03 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Example of the use of different languages</title>
+<meta name="author" content="Saul SL" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'JavaScript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="css/pygments.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Example of the use of different languages</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgced3fc0">1. Environment setup</a></li>
+<li><a href="#orge115118">2. Extract a table from a website and process it</a></li>
+<li><a href="#org4bea4db">3. Notes</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgced3fc0" class="outline-2">
+<h2 id="orgced3fc0"><span class="section-number-2">1.</span> Environment setup</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+For the example described in the next section,  a number of packages are needed thus, it may be better to create a virtual environment where these can be installed. Snippet <a href="#orge7c8bd7">1</a> list all the commands for setting up the environment.
+</p>
+
+<div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>webscrap<span class="w"> </span>-y
+conda<span class="w"> </span>activate<span class="w"> </span>webscrap
+
+<span class="c1"># Install python libraries</span>
+conda<span class="w"> </span>install<span class="w"> </span>anaconda::pandas
+conda<span class="w"> </span>install<span class="w"> </span>anaconda::bs4
+conda<span class="w"> </span>install<span class="w"> </span>conda-forge::lxml
+pip<span class="w"> </span>install<span class="w"> </span>requests
+
+<span class="c1"># Install R</span>
+conda<span class="w"> </span>install<span class="w"> </span>r::r
+</pre></div>
+
+<p>
+Then, on an R session install the required R packages
+</p>
+
+<div class="highlight"><pre><span></span><span class="n">install</span><span class="o">-</span><span class="nf">packages</span><span class="p">(</span><span class="s">&quot;dplyr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div id="outline-container-orge115118" class="outline-2">
+<h2 id="orge115118"><span class="section-number-2">2.</span> Extract a table from a website and process it</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Having all the dependencies installed we can write all the code blocks required for the example. This will attempt to extract a table of all supported-languages  in org-mode that work out-of-the-box, check if specific languages are supported and then print the information in a table. To this end, two code blocks  and a call for the results are written.  The <a href="#orge03c3c7">first</a> one (written in Python) scraps  the relevant community documentation <a href="https://orgmode.org/worg/org-contrib/babel/languages/">web page</a>, extract the  table that lists all the supported languages, transform it into a pandas' data frame and return this object. The <a href="#org632ec17">second</a> code block, (written in R), will import the data frame, filter it for a selected set of languages and rename the first column. Finally, the selected table will be printed with a caption that informs about the selection process.
+</p>
+
+<p>
+The code below will process the table of supported-languages in Emacs org-mode, note that it is necessary to return the object of interest in the last line for it to be exported and processed by the next code block.<br />
+</p>
+
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+
+<span class="c1"># URL of the web page containing the table</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://orgmode.org/worg/org-contrib/babel/languages/&#39;</span>
+
+<span class="c1"># Send a GET request to the URL</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="c1"># Parse the HTML content of the web page using BeautifulSoup</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+
+<span class="c1"># Find the table element</span>
+<span class="n">table_html</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+<span class="n">tb_languages</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">table_html</span><span class="p">)))[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">tb_languages</span>
+</pre></div>
+
+<p>
+The code below will use the exported object by storing it in a custom variable (<code>df</code>) and select if a there is support for 4 languages of interest (<code>LaTeX</code>, <code>Python</code>, <code>R</code> and <code>C++</code>) then it will rename the first column (row numbers) to see in which position (alphabetically) these languages are placed.<br />
+</p>
+
+<div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+<span class="n">my_lang</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;LaTeX&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;R&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;C++&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CLI&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="w">  </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">Language</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="n">my_lang</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span>
+<span class="w">  </span><span class="nf">rename</span><span class="p">(</span><span class="n">Lang_N</span><span class="o">=</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+
+<p>
+The processing steps in the code above will return the filtered table so there is no need to store in an object just use the <code>#+RESULTS:</code> keyword with the name of the code block.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> <b>Built-In language support for selected languages on Emacs.</b></caption>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Lang_N</th>
+<th scope="col" class="org-left">Language</th>
+<th scope="col" class="org-left">Identifier</th>
+<th scope="col" class="org-left">Documentation</th>
+<th scope="col" class="org-left">Maintainer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">C++</td>
+<td class="org-left">cpp</td>
+<td class="org-left">ob-doc-c</td>
+<td class="org-left">Thierry Banel</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">CLI</td>
+<td class="org-left">shell</td>
+<td class="org-left">ob-doc-shell</td>
+<td class="org-left">Matthew Trzcinski</td>
+</tr>
+
+<tr>
+<td class="org-right">22</td>
+<td class="org-left">LaTeX</td>
+<td class="org-left">latex</td>
+<td class="org-left">ob-doc-LaTeX</td>
+<td class="org-left">nan</td>
+</tr>
+
+<tr>
+<td class="org-right">36</td>
+<td class="org-left">Python</td>
+<td class="org-left">python</td>
+<td class="org-left">ob-doc-python</td>
+<td class="org-left">Jack Kamm</td>
+</tr>
+
+<tr>
+<td class="org-right">37</td>
+<td class="org-left">R</td>
+<td class="org-left">R</td>
+<td class="org-left">ob-doc-R</td>
+<td class="org-left">Jeremie Juste</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org4bea4db" class="outline-2">
+<h2 id="org4bea4db"><span class="section-number-2">3.</span> Notes</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Note that in the pdf version of this file, the caption for all the code blocks has the label, 'Figure'. This is an issue of the exporter that requires additional configuration that was not meant to be included in this example.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Saul SL (<a href="mailto:ssl-work@proton.me">ssl-work@proton.me</a>)</p>
+<p class="date">Date: July 2025</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.8-pre)</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

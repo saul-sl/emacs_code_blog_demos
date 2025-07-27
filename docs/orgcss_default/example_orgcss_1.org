@@ -1,0 +1,100 @@
+#+Title: Notes on R for data science
+#+Author: Saul SL
+#+date: January 2025
+#+options: broken-links:t ^:{}
+:html-options:
+#+HTML_HEAD: <link rel="stylesheet" href="css/org.css">
+:END:
+
+* Environment setup
+For the example described in the next section,  a number of packages are needed thus, it may be better to create a virtual environment where these can be installed. Snippet [[env-setup]] list all the commands for setting up the environment.
+
+#+name: env-setup
+#+label: env-setup
+#+caption:  *Code to create a new virtual environment in Anaconda.*
+#+begin_src shell :eval no
+  conda create --name webscrap -y
+  conda activate webscrap
+
+  # Install python libraries
+  conda install anaconda::pandas
+  conda install anaconda::bs4
+  conda install conda-forge::lxml
+  pip install requests
+
+  # Install R
+  conda install r::r
+#+end_src
+
+Then, on an R session install the required R packages
+
+#+label: R-setup
+#+caption:  *Code to install the required R package to process the dataframe.*
+#+begin_src R :eval no
+install-packages("dplyr")
+#+end_src
+
+* Extract a table from a website and process it
+Having all the dependencies installed we can write all the code blocks required for the example. This will attempt to extract a table of all supported-languages  in org-mode that work out-of-the-box, check if specific languages are supported and then print the information in a table. To this end, two code blocks  and a call for the results are written.  The [[code:ScrapTable][first]] one (written in Python) scraps  the relevant community documentation [[https://orgmode.org/worg/org-contrib/babel/languages/][web page]], extract the  table that lists all the supported languages, transform it into a pandas' data frame and return this object. The [[Process-table][second]] code block, (written in R), will import the data frame, filter it for a selected set of languages and rename the first column. Finally, the selected table will be printed with a caption that informs about the selection process.
+
+The code below will process the table of supported-languages in Emacs org-mode, note that it is necessary to return the object of interest in the last line for it to be exported and processed by the next code block.\\
+
+#+name: code:ScrapTable
+#+label: code:ScrapTable
+#+caption:  *Python code to retrieve a web page, extract and process a table within.*
+#+begin_src python :session :results table :colnames yes
+  import pandas as pd
+  from bs4 import BeautifulSoup
+  import requests
+  from io import StringIO
+
+  # URL of the web page containing the table
+  url = 'https://orgmode.org/worg/org-contrib/babel/languages/'
+
+  # Send a GET request to the URL
+  response = requests.get(url)
+
+  # Parse the HTML content of the web page using BeautifulSoup
+  soup = BeautifulSoup(response.text, 'html.parser')
+
+  # Find the table element
+  table_html = soup.find('table')
+  tb_languages = pd.read_html(StringIO(str(table_html)))[0]
+  tb_languages
+#+end_src
+
+The code below will use the exported object by storing it in a custom variable (=df=) and select if a there is support for 4 languages of interest (=LaTeX=, =Python=, =R= and =C++=) then it will rename the first column (row numbers) to see in which position (alphabetically) these languages are placed.\\
+
+#+name: Process-table
+#+label: Process-table
+#+caption:  *R code to import the data frame from the previous code-block and filter it.*
+#+begin_src R :session :var df=code:ScrapTable() :exports both :colnames yes :cache yes
+  library(dplyr)
+  my_lang <- c("LaTeX", "Python", "R", "C++", "CLI")
+  df  |>
+    filter(Language %in% my_lang) |>
+    rename(Lang_N=X)
+#+end_src
+
+The processing steps in the code above will return the filtered table so there is no need to store in an object just use the =#+RESULTS:= keyword with the name of the code block.
+
+#+caption: *Built-In language support for selected languages on Emacs.*
+#+RESULTS[066bb883118a3455fe837411dcbc470618655314]: Process-table
+| Lang_N | Language | Identifier | Documentation | Maintainer        |
+|--------+----------+------------+---------------+-------------------|
+|      3 | C++      | cpp        | ob-doc-c      | Thierry Banel     |
+|      5 | CLI      | shell      | ob-doc-shell  | Matthew Trzcinski |
+|     22 | LaTeX    | latex      | ob-doc-LaTeX  | nan               |
+|     36 | Python   | python     | ob-doc-python | Jack Kamm         |
+|     37 | R        | R          | ob-doc-R      | Jeremie Juste     |
+
+
+* Notes
+Note that in the pdf version of this file, the caption for all the code blocks has the label, 'Figure'. This is an issue of the exporter that requires additional configuration that was not meant to be included in this example.
+
+* Local variables                              :noexport:
+# Local Variables:
+# org-confirm-babel-evaluate: nil
+# eval: (setq org-html-htmlize-output-type nil)
+# eval: (setq org-html-head-include-default-style nil)
+# End:
