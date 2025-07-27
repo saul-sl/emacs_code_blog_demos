@@ -1,4 +1,4 @@
-#+Title: Notes on R for data science
+#+Title: Example of the use of different languages
 #+Author: Saul SL
 #+date: January 2025
 #+options: broken-links:t ^:{}

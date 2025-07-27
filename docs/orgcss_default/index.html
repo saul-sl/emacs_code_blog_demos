@@ -3,37 +3,37 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-07-24 Thu 16:57 -->
+<!-- 2025-07-27 Sun 18:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Notes on R for data science</title>
+<title>Example of the use of different languages</title>
 <meta name="author" content="Saul SL" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" href="css/org.css">
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Notes on R for data science</h1>
+<h1 class="title">Example of the use of different languages</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge7a3aed">1. Environment setup</a></li>
-<li><a href="#org7289733">2. Extract a table from a website and process it</a></li>
-<li><a href="#orge8dc9ed">3. Notes</a></li>
+<li><a href="#orge736f69">1. Environment setup</a></li>
+<li><a href="#orgd0b9560">2. Extract a table from a website and process it</a></li>
+<li><a href="#org87e8e52">3. Notes</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge7a3aed" class="outline-2">
-<h2 id="orge7a3aed"><span class="section-number-2">1.</span> Environment setup</h2>
+<div id="outline-container-orge736f69" class="outline-2">
+<h2 id="orge736f69"><span class="section-number-2">1.</span> Environment setup</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-For the example described in the next section,  a number of packages are needed thus, it may be better to create a virtual environment where these can be installed. Snippet <a href="#org8f3dc04">1</a> list all the commands for setting up the environment.
+For the example described in the next section,  a number of packages are needed thus, it may be better to create a virtual environment where these can be installed. Snippet <a href="#org668a53e">1</a> list all the commands for setting up the environment.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 1: </span><b>Code to create a new virtual environment in Anaconda.</b></label><pre class="src src-shell" id="org8f3dc04"><code>conda create --name webscrap -y
+<label class="org-src-name"><span class="listing-number">Listing 1: </span><b>Code to create a new virtual environment in Anaconda.</b></label><pre class="src src-shell" id="org668a53e"><code>conda create --name webscrap -y
 conda activate webscrap
 
 # Install python libraries
@@ -52,16 +52,16 @@ Then, on an R session install the required R packages
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 2: </span><b>Code to install the required R package to process the dataframe.</b></label><pre class="src src-R" id="org5f48293"><code>install-packages("dplyr")
+<label class="org-src-name"><span class="listing-number">Listing 2: </span><b>Code to install the required R package to process the dataframe.</b></label><pre class="src src-R" id="org107858e"><code>install-packages("dplyr")
 </code></pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org7289733" class="outline-2">
-<h2 id="org7289733"><span class="section-number-2">2.</span> Extract a table from a website and process it</h2>
+<div id="outline-container-orgd0b9560" class="outline-2">
+<h2 id="orgd0b9560"><span class="section-number-2">2.</span> Extract a table from a website and process it</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Having all the dependencies installed we can write all the code blocks required for the example. This will attempt to extract a table of all supported-languages  in org-mode that work out-of-the-box, check if specific languages are supported and then print the information in a table. To this end, two code blocks  and a call for the results are written.  The <a href="#orgc4efa78">first</a> one (written in Python) scraps  the relevant community documentation <a href="https://orgmode.org/worg/org-contrib/babel/languages/">web page</a>, extract the  table that lists all the supported languages, transform it into a pandas' data frame and return this object. The <a href="#org75587b0">second</a> code block, (written in R), will import the data frame, filter it for a selected set of languages and rename the first column. Finally, the selected table will be printed with a caption that informs about the selection process.
+Having all the dependencies installed we can write all the code blocks required for the example. This will attempt to extract a table of all supported-languages  in org-mode that work out-of-the-box, check if specific languages are supported and then print the information in a table. To this end, two code blocks  and a call for the results are written.  The <a href="#org81f41d1">first</a> one (written in Python) scraps  the relevant community documentation <a href="https://orgmode.org/worg/org-contrib/babel/languages/">web page</a>, extract the  table that lists all the supported languages, transform it into a pandas' data frame and return this object. The <a href="#org2f398e5">second</a> code block, (written in R), will import the data frame, filter it for a selected set of languages and rename the first column. Finally, the selected table will be printed with a caption that informs about the selection process.
 </p>
 
 <p>
@@ -69,7 +69,7 @@ The code below will process the table of supported-languages in Emacs org-mode, 
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 3: </span><b>Python code to retrieve a web page, extract and process a table within.</b></label><pre class="src src-python" id="orgc4efa78"><code>import pandas as pd
+<label class="org-src-name"><span class="listing-number">Listing 3: </span><b>Python code to retrieve a web page, extract and process a table within.</b></label><pre class="src src-python" id="org81f41d1"><code>import pandas as pd
 from bs4 import BeautifulSoup
 import requests
 from io import StringIO
@@ -95,7 +95,7 @@ The code below will use the exported object by storing it in a custom variable (
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 4: </span><b>R code to import the data frame from the previous code-block and filter it.</b></label><pre class="src src-R" id="orgadba6f2"><code>library(dplyr)
+<label class="org-src-name"><span class="listing-number">Listing 4: </span><b>R code to import the data frame from the previous code-block and filter it.</b></label><pre class="src src-R" id="org069bf94"><code>library(dplyr)
 my_lang &lt;- c("LaTeX", "Python", "R", "C++", "CLI")
 df  |&gt;
   filter(Language %in% my_lang) |&gt;
@@ -174,8 +174,8 @@ The processing steps in the code above will return the filtered table so there i
 </table>
 </div>
 </div>
-<div id="outline-container-orge8dc9ed" class="outline-2">
-<h2 id="orge8dc9ed"><span class="section-number-2">3.</span> Notes</h2>
+<div id="outline-container-org87e8e52" class="outline-2">
+<h2 id="org87e8e52"><span class="section-number-2">3.</span> Notes</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Note that in the pdf version of this file, the caption for all the code blocks has the label, 'Figure'. This is an issue of the exporter that requires additional configuration that was not meant to be included in this example.
@@ -184,9 +184,9 @@ Note that in the pdf version of this file, the caption for all the code blocks h
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: Saul SL (<a href="mailto:ssl-work@proton.me">ssl-work@proton.me</a>)</p>
 <p class="date">Date: January 2025</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.8-pre)</p>
+<p class="author">Author: Saul SL</p>
+<p class="date">Created: 2025-07-27 Sun 18:00</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
