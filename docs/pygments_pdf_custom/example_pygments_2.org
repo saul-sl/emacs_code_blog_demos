@@ -120,7 +120,7 @@ Note that in the pdf version of this file, the caption for all the code blocks h
 # my/css-path: "css/pygments.css"
 # my/pygments-style: "staroffice"
 # org-confirm-babel-evaluate: nil
-# eval: (setq org-html-htmlize-output-type 'nil)
+# eval: (setq org-html-htmlize-output-type nil)
 # eval: (setq org-html-head-include-default-style t)
 # eval: (setq org-latex-src-block-backend 'minted)
 # End:

@@ -32,6 +32,6 @@ Note that these were inserted by calling the above code with the org-mode keywor
 * Extra files                                  :noexport:
 # Local Variables:
 # org-confirm-babel-evaluate: nil
-# eval: (setq org-html-htmlize-output-type inline-css)
+# eval: (setq org-html-htmlize-output-type 'inline-css)
 # eval: (setq org-html-head-include-default-style t)
 # End:

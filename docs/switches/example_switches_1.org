@@ -17,6 +17,6 @@ To update the list of repositories one usually needs super-user permissions (or 
 # Local Variables:
 # eval: (setq org-html-head-include-scripts t)
 # org-confirm-babel-evaluate: nil
-# eval: (setq org-html-htmlize-output-type inline-css)
+# eval: (setq org-html-htmlize-output-type 'inline-css)
 # eval: (setq org-html-head-include-default-style t)
 # End:
