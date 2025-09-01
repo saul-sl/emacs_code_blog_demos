@@ -1,0 +1,54 @@
+#+Title: Notes on Python
+#+Author: Saul SL
+#+date: August 2025
+#+options: broken-links:t ^:{} tags:nil
+
+#+LATEX_CLASS: custom-book
+#+LATEX_CLASS_OPTIONS: [11pt]
+#+SETUPFILE: aux/org/latex_conf.org
+#+SETUPFILE: aux/org/html_conf.org
+#+LATEX_HEADER: \usepackage[backend=biber,style=authoryear,maxcitenames=2,maxbibnames=100,uniquename=false,uniquelist=false]{biblatex}
+#+LATEX_HEADER: \addbibresource{aux/bib/references.bib}
+
+* Working with lists
+:PROPERTIES:
+:header-args: :results output :exports both :session Ch4
+:END:
+** Looping over a list
+*** Exercises
+:PROPERTIES:
+:header-args:  :session Ch4ex :results output :exports both :tangle output/py/Ch4_exercises.py :mkpdir yes :comments both :shebang "#!/bin/python3"
+:END:
+**** Exercise 4-1 Pizzas
+Think of at least three kinds of your favorite pizza. Store these pizza names in a list, and then use a for loop to print the name of each pizza.
+#+begin_src python
+pizzas = ['pepperoni', 'cheese', 'ny']
+for pizza in pizzas:
+    print(f"- {pizza}")
+#+end_src
+
+- Modify your for loop to print a sentence using the name of the pizza instead of printing just the name of the pizza. For each pizza you should have one line of output containing a simple statement like "/I like pepperoni pizza/".
+  #+begin_src python
+    for pizza in pizzas:
+        print(f"I like {pizza} pizza")
+  #+end_src
+  
+- Add a line at the end of your program, outside the for loop, that states how much you like pizza. The output should consist of three or more lines about the kinds of pizza you like and then an additional sentence, such as "/I really love pizza!/".
+  #+begin_src python
+    for pizza in pizzas:
+        print(f"I like {pizza} pizza")
+    print('...\nI really like pizza')
+  #+end_src
+
+
+* Local variables                              :noexport:
+# Local Variables:
+# org-confirm-babel-evaluate: nil
+# eval: (setq org-html-htmlize-output-type nil)
+# eval: (setq org-html-head-include-default-style nil)
+# eval: (setq org-latex-src-block-backend 'minted)
+# eval: (setq nice-org-html-css "aux/css/custom.css")
+# eval: (setq nice-org-html-js "aux/js/update_highlight.js")
+# eval: (setq nice-org-html-theme-alist '((light . doom-tomorrow-day) (dark . doom-spacegrey)))
+# eval: (setq bibtex-completion-bibliography '("aux/bib/references.bib"))
+# End:

@@ -1,0 +1,27 @@
+#+LATEX_HEADER: \usepackage{geometry,fontspec}
+#+LATEX_HEADER: \usepackage[x11names]{xcolor}
+#+LATEX_HEADER: \usepackage{booktabs,colortbl,rotating,sidecap,ulem,etoolbox}
+#+LATEX_HEADER: \usepackage{wrapfig,placeins,caption,fancyvrb,newfloat}
+#+LATEX_HEADER: \usepackage{minted}
+
+#+LATEX_HEADER: \geometry{paper=a4paper,vmargin={2cm,2cm}, hmargin={1.5cm,1.5cm}}
+#+LATEX_HEADER: \pagestyle{empty}
+#+LATEX_HEADER: \normalem
+#+LATEX_HEADER: \BeforeBeginEnvironment{minted}{\vspace{2ex}}
+#+LATEX_HEADER: \AfterEndEnvironment{figure}{\FloatBarrier}
+#+LATEX_HEADER: \renewcommand{\arraystretch}{1.5}
+#+LATEX_HEADER: \setlength{\parindent}{0pt}
+#+LATEX_HEADER: \setlength{\parskip}{\baselineskip}
+#+LATEX_HEADER: \renewcommand{\floatpagefraction}{.8}
+#+LATEX_HEADER: \captionsetup{labelfont=bf, font=footnotesize}
+#+LATEX_HEADER: \hypersetup{colorlinks=true, citecolor=DeepSkyBlue4, linkcolor=DeepSkyBlue4, urlcolor=DeepSkyBlue4}
+
+#+LATEX_HEADER: \setmainfont{RobotoCondensed}[UprightFont=*-Light, BoldFont=*-Regular, ItalicFont=*-LightItalic, BoldItalicFont=*-Italic]
+#+LATEX_HEADER: \setmonofont{IosevkaTerm NF}
+
+
+#+LATEX_HEADER: \DefineVerbatimEnvironment{verbatim}{Verbatim}{frame=lines,fontsize=\scriptsize,breaklines=true,rulecolor=\color{DarkSeaGreen4},label=Output}
+#+LATEX_HEADER: \fvset{tabsize=4, obeytabs=true}
+#+LATEX_HEADER: \setminted{style=manni,fontsize=\scriptsize, frame=single, baselinestretch=1.2, label=Input, rulecolor=DarkOliveGreen4}
+#+LATEX_HEADER: \SetupFloatingEnvironment{listing}{within=section}
+#+LATEX_HEADER: \newenvironment{code}{\captionsetup{labelfont=bf, type=listing, name=Snippet, aboveskip=-3pt ,belowskip=15pt}}{}

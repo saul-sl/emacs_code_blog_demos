@@ -1,0 +1,5 @@
+_minted/
+__pycache__/
+auto/
+.Rhistory
+*.bbl

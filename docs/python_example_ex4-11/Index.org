@@ -1,0 +1,53 @@
+#+Title: Notes on Python
+#+Author: Saul SL
+#+date: August 2025
+#+options: broken-links:t ^:{} tags:nil
+
+#+LATEX_CLASS: custom-book
+#+LATEX_CLASS_OPTIONS: [11pt]
+#+SETUPFILE: aux/org/latex_conf.org
+#+SETUPFILE: aux/org/html_conf.org
+#+LATEX_HEADER: \usepackage[backend=biber,style=authoryear,maxcitenames=2,maxbibnames=100,uniquename=false,uniquelist=false]{biblatex}
+#+LATEX_HEADER: \addbibresource{aux/bib/references.bib}
+
+* Working with lists
+:PROPERTIES:
+:header-args: :results output :exports both :session Ch4
+:END:
+** Working with subsets of a list
+*** Exercises
+:PROPERTIES:
+:header-args:  :session Ch4ex :results output :exports both :tangle output/py/Ch4_exercises.py :mkpdir yes :comments both :shebang "#!/bin/python3"
+:END:
+**** Exercise 4-11 My Pizzas, Your Pizzas
+Start with your program from [[*Exercise 4-1 Pizzas][Exercise 4-1]]. Make a copy of the list of pizzas, and call it =friend_pizzas=. Then, do the following:
+
+- Add a new pizza to the original list (line [[(4-11-1)]]). 
+- Add a different pizza to the list friend_pizzas (line [[(4-11-2)]]). 
+- Prove that you have two separate lists. Print the message "/My favorite pizzas are:/", and then use a for loop to print the first list (line [[(4-11-3a)]]). Print the message "/My friend’s favorite pizzas are:/", and then use a for loop to print the second list (line [[(4-11-3b)]]). Make sure each new pizza is stored in the appropriate list.
+#+begin_src python -n -r :linenos inline
+  pizzas = ['pepperoni', 'cheese', 'ny']
+  friend_pizzas = pizzas[:]
+  pizzas.append('vegetarian')                                        (ref:4-11-1)
+  friend_pizzas.insert(len(friend_pizzas), 'stone')                  (ref:4-11-2)
+
+  print("My favorite pizzas are:")                                  (ref:4-11-3a)
+  for pizza in pizzas:
+      print(f"- {pizza}")
+
+  print("My friend’s favorite pizzas are:")                         (ref:4-11-3b)
+  for pizza in friend_pizzas:
+      print(f"- {pizza}")
+#+end_src
+
+* Local variables                              :noexport:
+# Local Variables:
+# org-confirm-babel-evaluate: nil
+# eval: (setq org-html-htmlize-output-type nil)
+# eval: (setq org-html-head-include-default-style nil)
+# eval: (setq org-latex-src-block-backend 'minted)
+# eval: (setq nice-org-html-css "aux/css/custom.css")
+# eval: (setq nice-org-html-js "aux/js/update_highlight.js")
+# eval: (setq nice-org-html-theme-alist '((light . doom-tomorrow-day) (dark . doom-spacegrey)))
+# eval: (setq bibtex-completion-bibliography '("aux/bib/references.bib"))
+# End:

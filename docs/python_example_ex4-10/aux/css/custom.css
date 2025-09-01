@@ -1,0 +1,60 @@
+h1 {
+    font-size: 2.2rem;
+    border: 5px solid;
+    border-image: linear-gradient(to bottom, var(--clr-doc), var(--bg)) 1;
+    border-radius: 2px;
+    padding: 20px 5px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    border-bottom: 7px solid;
+    border-image: linear-gradient(to right, var(--clr-doc), var(--bg)) 1;
+    padding-bottom: 5px;
+    margin-top: 5rem;
+}
+
+ blockquote {
+     border-left: 0.75rem solid;
+     border-image: linear-gradient(to bottom, var(--clr-warning), var(--bg)) 1;
+     padding-left: 1rem;
+     margin-left: 0.75rem;
+     margin-right: 0.75rem;
+ }
+
+label.org-src-name {
+    padding-left: 1rem;
+    padding-bottom: 0.2rem;
+    font-size: 0.8rem;
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid;
+    font-weight: bold;
+}
+
+label.org-src-name + pre {
+    margin-top: 1.25rem !important;
+}
+
+caption.t-above {
+    margin-top: 1.25rem;
+    margin-bottom: 1.125rem;
+}
+
+.csl-bib-body{
+    margin-bottom: 5rem;
+}
+
+.csl-entry {
+    margin-bottom: 1.25rem;
+}
+
+.csl-entry::before {
+    content: "◉ ";
+    color: var(--clr-title);
+    margin-right: 5px;
+}
+
+.org-ol li{
+    margin-top: 1rem;
+}

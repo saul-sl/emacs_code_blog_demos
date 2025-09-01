@@ -1,0 +1,108 @@
+#+Title: Notes on Python
+#+Author: Saul SL
+#+date: August 2025
+#+options: broken-links:t ^:{} tags:nil
+
+#+LATEX_CLASS: custom-book
+#+LATEX_CLASS_OPTIONS: [11pt]
+#+SETUPFILE: aux/org/latex_conf.org
+#+SETUPFILE: aux/org/html_conf.org
+#+LATEX_HEADER: \usepackage[backend=biber,style=authoryear,maxcitenames=2,maxbibnames=100,uniquename=false,uniquelist=false]{biblatex}
+#+LATEX_HEADER: \addbibresource{aux/bib/references.bib}
+
+
+* Working with lists
+:PROPERTIES:
+:header-args: :results output :exports both :session Ch4
+:END:
+** Working with subsets of a list
+*** Exercises
+:PROPERTIES:
+:header-args:  :session Ch4ex :results output :exports both :tangle output/py/Ch4_exercises.py :mkpdir yes :comments both :shebang "#!/bin/python3"
+:END:
+**** Exercise 4-10 Slices
+Using one of the programs you wrote in this chapter, add several lines to the end of the program that do the following:
+
+- Print the message "/The first three items in the list are:/". Then use a slice to print the first three items from that program’s list. 
+- Print the message "/Three items from the middle of the list are:/". Use a slice to print three items from the middle of the list. 
+- Print the message "/The last three items in the list are:/". Use a slice to print the last three items in the list.
+#+begin_src python
+  print("This exercise uses the object 't_players_1'")
+  t_players_1 = ['Rafa', 'Roger', 'Novak', 'Andy', 'Stan', 'Jannik', 'Carlos']
+  print(t_players_1)
+
+  print("\nThe first 3 items of the list are:")
+  for i in t_players_1[:3]:
+      print(i)
+
+
+  def sublist_even(ilist, n_subitems):
+      n_items = len(ilist)
+      # list even, sublist even
+      if n_items % 2 == 0 and n_subitems % 2 == 0:
+          mid_point = n_items / 2
+          i_start = (mid_point + 1) - (n_subitems/2)
+
+      # list odd, sublist even
+      elif n_items%2 != 0 and n_subitems%2 == 0:
+          mid_point = (n_items+1) / 2
+          i_start = mid_point - (n_subitems/2)
+
+      # list even, sublist odd
+      elif n_items%2 == 0 and n_subitems%2 != 0:
+          mid_point = (n_items) / 2
+          i_start = mid_point - ((n_subitems-1)/2)
+
+      # list odd, sublist odd
+      elif n_items%2 != 0 and n_subitems%2 != 0:
+          mid_point = (n_items + 1) / 2
+          i_start = mid_point - ((n_subitems-1)/2)
+
+      i_start = int(i_start - 1)
+      i_end = i_start + n_subitems
+      isublist = ilist[i_start:i_end]
+      return isublist
+
+
+  print("\nThe 3 items in the middle are:")
+  isublist = sublist_even(t_players_1, 3)
+  for i in isublist:
+      print(i)
+
+  print("\nThe last 3 items are:")
+  for i in t_players_1[-3:]:
+      print(i)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+This exercise uses the object 't_players_1'
+['Rafa', 'Roger', 'Novak', 'Andy', 'Stan', 'Jannik', 'Carlos']
+
+The first 3 items of the list are:
+Rafa
+Roger
+Novak
+
+The 3 items in the middle are:
+Novak
+Andy
+Stan
+
+The last 3 items are:
+Stan
+Jannik
+Carlos
+#+end_example
+
+* Local variables                              :noexport:
+# Local Variables:
+# org-confirm-babel-evaluate: nil
+# eval: (setq org-html-htmlize-output-type nil)
+# eval: (setq org-html-head-include-default-style nil)
+# eval: (setq org-latex-src-block-backend 'minted)
+# eval: (setq nice-org-html-css "aux/css/custom.css")
+# eval: (setq nice-org-html-js "aux/js/update_highlight.js")
+# eval: (setq nice-org-html-theme-alist '((light . doom-tomorrow-day) (dark . doom-spacegrey)))
+# eval: (setq bibtex-completion-bibliography '("aux/bib/references.bib"))
+# End:

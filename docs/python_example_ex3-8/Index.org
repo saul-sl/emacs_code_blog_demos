@@ -1,0 +1,144 @@
+#+Title: Notes on Python
+#+Author: Saul SL
+#+date: August 2025
+#+options: broken-links:t ^:{} tags:nil
+
+#+LATEX_CLASS: custom-book
+#+LATEX_CLASS_OPTIONS: [11pt]
+#+SETUPFILE: aux/org/latex_conf.org
+#+SETUPFILE: aux/org/html_conf.org
+#+LATEX_HEADER: \usepackage[backend=biber,style=authoryear,maxcitenames=2,maxbibnames=100,uniquename=false,uniquelist=false]{biblatex}
+#+LATEX_HEADER: \addbibresource{aux/bib/references.bib}
+
+* Introducing lists
+** Organizing a list
+*** Exercises
+:PROPERTIES:
+:header-args:  :session Ch3ex :results output :exports both :tangle output/py/Ch3_exercises.py :mkpdir yes :comments both :shebang "#!/bin/python3"
+:END:
+**** Exercise 3-8 Seeing the World
+Think of at least five places in the world you’d like to visit.
+
+1. Store the locations in a list. Make sure the list is not in alphabetical order.  Then, print your list in its original order. Don’t worry about printing the list neatly, just print it as a raw Python list ([[l_code:Ch3ex8-1][\rightarrow]]).
+2. Use =sorted()= to print your list in alphabetical order without modifying the actual list ([[l_code:Ch3ex8-2][\rightarrow]]).
+3. Show that your list is still in its original order by printing it  ([[l_code:Ch3ex8-3][\rightarrow]]).
+4. Use =sorted()= to print your list in reverse alphabetical order without changing the order of the original list ([[l_code:Ch3ex8-4][\rightarrow]]).
+5. Show that your list is still in its original order by printing it again ([[Ch3ex8-3rep][\rightarrow]]). 
+6. Use =reverse()= to change the order of your list. Print the list to show that its order has changed ([[l_code:Ch3ex8-6][\rightarrow]]). 
+7. Use =reverse()= to change the order of your list again. Print the list to show it’s back to its original order ([[l_code:Ch3ex8-7][\rightarrow]]). 
+8. Use =sort()= to change your list so it’s stored in alphabetical order. Print the list to show that its order has been changed ([[l_code:Ch3ex8-8][\rightarrow]]). 
+9. Use =sort()= to change your list so it’s stored in reverse alphabetical order. Print the list to show that its order has changed  ([[l_code:Ch3ex8-9][\rightarrow]]).
+
+<<l_code:Ch3ex8-1>>
+#+name: code:Ch3ex8-1
+#+caption: Exercise 8 part 1: Print list as it is.
+#+begin_src python
+  itravel = ['thailand', 'colombia', 'chile',
+             'tanzania', 'madagascar']
+
+  print("Unsorted list")
+  for place in itravel:
+      print(f"- {place.title()}")
+#+end_src
+[[*Exercise 3-8 Seeing the World][[\uparrow]​]]
+
+
+<<l_code:Ch3ex8-2>>
+#+name: code:Ch3ex8-2
+#+label: code:Ch3ex8-2l
+#+caption: Exercise 8 part 2: Print sorted list alphabetically.
+#+begin_src python
+  print("Sorted list")
+  for place in sorted(itravel):
+      print(f"- {place.title()}")
+#+end_src
+[[*Exercise 3-8 Seeing the World][[\uparrow]​]]
+
+<<l_code:Ch3ex8-3>>
+#+name: code:Ch3ex8-3
+#+caption: Exercise 8 part 3: Print original list.
+#+begin_src python
+  print("Check that list is in the same order")
+  for place in itravel:
+      print(f"- {place.title()}")
+#+end_src
+[[*Exercise 3-8 Seeing the World][[\uparrow]​]]
+
+<<l_code:Ch3ex8-4>>
+#+name: code:Ch3ex8-4
+#+caption: Exercise 8 part 4: Print list sorted in reverse alphabetical order.
+#+begin_src python
+  print("Sorted list in reverse order")
+  for place in sorted(itravel, reverse=True):
+      print(f"- {place.title()}")
+#+end_src
+[[*Exercise 3-8 Seeing the World][[\uparrow]​]]
+
+<<Ch3ex8-3rep>>
+Re-evaluate the code from [[l_code:Ch3ex8-3][part 3]].
+#+caption: Exercise 8 part 5: Print original list as in part 3.
+#+begin_src python :noweb yes
+<<code:Ch3ex8-3>>
+#+end_src
+[[*Exercise 3-8 Seeing the World][[\uparrow]​]]
+
+<<l_code:Ch3ex8-6>>
+#+name: code:Ch3ex8-6
+#+caption: Exercise 8 part 6: Use reverse to change order.
+#+begin_src python
+  # Reverse list
+  print("Reverse list")
+  itravel.reverse()
+  for place in itravel:
+      print(f"- {place.title()}")
+#+end_src
+[[*Exercise 3-8 Seeing the World][[\uparrow]​]]
+
+<<l_code:Ch3ex8-7>>
+#+name: code:Ch3ex8-7
+#+caption: Exercise 8 part 7: Use reverse (again) to change back.
+#+begin_src python
+  # Re-reverse list
+  print("Reverse list (again)")
+  itravel.reverse()
+  for place in itravel:
+      print(f"- {place.title()}")
+#+end_src
+[[*Exercise 3-8 Seeing the World][[\uparrow]​]]
+
+<<l_code:Ch3ex8-8>>
+#+name: code:Ch3ex8-8
+#+caption: Exercise 8 part 8: Use sort to change the list in alphabetical order.
+#+begin_src python
+  # Sort list
+  print("Sort the list")
+  itravel.sort()
+  for place in itravel:
+      print(f"- {place.title()}")
+#+end_src
+[[*Exercise 3-8 Seeing the World][[\uparrow]​]]
+
+<<l_code:Ch3ex8-9>>
+#+name: code:Ch3ex8-9
+#+caption: Exercise 8 part 9: Use sort to change the list in reverse alphabetical order.
+#+begin_src python
+  # Sort in reverse order
+  print("Sort in reverse order")
+  itravel.sort(reverse=True)
+  for place in itravel:
+      print(f"- {place.title()}")
+#+end_src
+[[*Exercise 3-8 Seeing the World][[\uparrow]​]]
+
+
+* Local variables                              :noexport:
+# Local Variables:
+# org-confirm-babel-evaluate: nil
+# eval: (setq org-html-htmlize-output-type nil)
+# eval: (setq org-html-head-include-default-style nil)
+# eval: (setq org-latex-src-block-backend 'minted)
+# eval: (setq nice-org-html-css "aux/css/custom.css")
+# eval: (setq nice-org-html-js "aux/js/update_highlight.js")
+# eval: (setq nice-org-html-theme-alist '((light . doom-tomorrow-day) (dark . doom-spacegrey)))
+# eval: (setq bibtex-completion-bibliography '("aux/bib/references.bib"))
+# End:
